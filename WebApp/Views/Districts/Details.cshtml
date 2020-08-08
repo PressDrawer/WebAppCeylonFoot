@@ -1,0 +1,28 @@
+﻿@model WebApp.Models.District
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div class="row">
+    @foreach (var item in Model.Posts)
+    {
+        <div class="col-md-3">
+          
+            <h1>
+                @Html.DisplayFor(modelItem => item.Title)
+            </h1><br />
+            <div>
+                @Html.DisplayFor(modelItem => item.Images)
+            </div><br />
+            <p>
+                @Html.DisplayFor(modelItem => item.Description)
+            </p><br />
+          
+       
+        </div>
+    }
+</div>

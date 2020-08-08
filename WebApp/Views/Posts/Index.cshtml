@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApp.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<!--
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+     
+    
+-->
+<div class="container">
+   
+    <div class="row">
+        @foreach (var item in Model)
+        {
+        <div class="col-md-3">
+            <p>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </p><br />
+            <h1>
+                @Html.DisplayFor(modelItem => item.Title)
+            </h1><br />
+            <div>
+                @Html.DisplayFor(modelItem => item.Images)
+            </div><br />
+            <p>
+                @Html.DisplayFor(modelItem => item.Description)
+            </p><br />
+            <p>
+                @Html.DisplayFor(modelItem => item.District.DistrictName)
+            </p><br />
+            <p>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
+                </div>
+                <div class="col-md-4">
+                    <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
+                </div>
+                <div class="col-md-4">
+                    <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+ 
+</div>
