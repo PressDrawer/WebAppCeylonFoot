@@ -28,17 +28,17 @@ namespace CeylonFoot.Controllers
         // GET: Districts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-           
 
-            var district =  _context.Districts.Where(d => d.DistrictId == id)
+
+            var district = await _context.Districts.Where(d => d.DistrictId == id)
                 .Include(d => d.Posts)
-                .ThenInclude(p => p.Category) 
-                .ThenInclude(c => c.CategoryId == 2)
-                
-                .AsNoTracking();
+                .ThenInclude(p => p.Category).FirstOrDefaultAsync();
+            //   .ThenInclude(c => c.CategoryId == 2).FirstOrDefaultAsync();
 
-         
-            return View(await district.ToListAsync());
+            //  .AsNoTracking();
+
+
+            return View(district);
         }
 
         // GET: Districts/Create
