@@ -4,14 +4,14 @@
     ViewData["Title"] = "Details";
 }
 
-    <h1>  @Html.DisplayFor(model => model.DistrictName)</h1>
+<h1>  @Html.DisplayFor(model => model.DistrictName)</h1>
 
-
+<!--
 <div class="row">
     @foreach (var item in Model.Posts)
     {
         <div class="col-md-3">
-          
+
             <h1>
                 @Html.DisplayFor(modelItem => item.Title)
             </h1><br />
@@ -21,8 +21,29 @@
             <p>
                 @Html.DisplayFor(modelItem => item.Description)
             </p><br />
-          
-       
+
+
         </div>
     }
-</div>
+</div> -->
+
+<div class="tab-pane" id="1a">
+    <div class="tm-recommended-place-wrap">
+        @foreach (var item in Model.Posts)
+        {
+            <div class="tm-recommended-place">
+                <img src="" alt="Image" class="img-fluid tm-recommended-img">
+                <div class="tm-recommended-description-box">
+                    <h3 class="tm-recommended-title">  @Html.DisplayFor(modelItem => item.Title)</h3>
+                    <p class="tm-text-highlight"> @Html.DisplayFor(modelItem => item.District.DistrictName)</p>
+                    <p class="tm-text-gray">@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+                <a href="#" class="tm-recommended-price-box">
+                    <p class="tm-recommended-price"></p>
+                    <p class="tm-recommended-price-link">Continue Reading</p>
+                </a>
+            </div>
+        }
+        </div>
+    </div>
+
