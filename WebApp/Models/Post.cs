@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace WebApp.Models
 {
     public class Post
     {
+        public static byte[] Image { get; internal set; }
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -22,7 +24,8 @@ namespace WebApp.Models
 
         public ICollection<Review> Reviews { get; set; }
       
-        public ICollection<Image> Images { get; set; }
+
+        public static ICollection<IFormFile> Images { get; set; }
 
     }
 }

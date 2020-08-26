@@ -39,27 +39,33 @@
                                         <a class="nav-link" href="#tm-section-2">Top Destinations</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#tm-section-3">Recommended Places</a>
+                                        <a class="nav-link" href="#tm-section-3">Hotels</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                 <a class="nav-link" href="#tm-section-4">Contact Us</a>
-             </li>-->
-                                  <!--  <li class="nav-item">
-                                        <a class="nav-link text-uppercase btn-primary tm-btn" asp-controller="Posts" asp-action="Create">Add listing</a>
-                                    </li> -->
+                                    <!--
+                                    <li class="nav-item">
+                                        <select asp-for="DistrictId" asp-items="ViewBag.DistrictId" class="custom-select">
+                                            <option value="">Choose a District</option>
+                                        </select>
+                                    </li>
+                                  <li class="nav-item">
+        <a class="nav-link" href="#tm-section-4">Contact Us</a>
+    </li>-->
+                                    <!--  <li class="nav-item">
+        <a class="nav-link text-uppercase btn-primary tm-btn" asp-controller="Posts" asp-action="Create">Add listing</a>
+    </li> -->
                                 </ul>
                             </div>
                             <div>
                                 <partial name="_LoginPartial.cshtml" />
                             </div>
-                            <a class="text-uppercase btn-primary tm-btn" asp-controller="Posts" asp-action="Create" >Add listing</a>
+                           
                         </nav>
                     </div> <!-- row -->
                 </div> <!-- container -->
             </div> <!-- .tm-top-bar -->
         </header>
         <div>
-            <a class="text-uppercase btn-primary tm-btn" asp-controller="Posts" asp-action="Create">Add listing</a>
+           
             <main>
                 @RenderBody()
             </main>

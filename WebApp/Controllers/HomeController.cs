@@ -24,7 +24,7 @@ namespace WebApp.Controllers
      
         public async Task<IActionResult> Index()
         {
-            var post = _context.Posts
+            var post = _context.Posts.Where(p => p.CategoryId == 1)
              .Include(p => p.Category)
              .Include(p => p.District)
              .AsNoTracking();

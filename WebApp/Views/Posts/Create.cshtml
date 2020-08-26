@@ -14,7 +14,7 @@
     <div class="col-md-4 offset-4">
        
        
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Category.CategoryName" class="control-label"></label>
@@ -22,12 +22,12 @@
                     <option value="">Choose Category</option>
                 </select>
             </div>
-           <div class="form-group">
+            <div class="form-group">
                 <label asp-for="District.DistrictName" class="control-label"></label>
                 <select asp-for="DistrictId" asp-items="ViewBag.DistrictId" class="custom-select">
                     <option value="">Choose a District</option>
                 </select>
-            </div> 
+            </div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -35,16 +35,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea  asp-for="Description" class="form-control"></textarea>
+                <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Images" class="control-label"></label>
-                <input type="file" asp-for="Images" class="form-control" />
-                <span asp-validation-for="Images" class="text-danger"></span>
-            </div>
-          
+            @foreach (var item in Post.Images)
+            {
+                <div class="form-group">
+                    <label asp-for="@Html.DisplayFor(modelItem => item)" class="control-label custom-file-input"></label>
+                    <input type="file" asp-for="@Html.DisplayFor(modelItem => item)" accept="image/*" multiple />
+                    <span asp-validation-for="@Html.DisplayFor(modelItem => item)" class="text-danger"></span>
+                </div>
+            }
 
             <div class="form-group">
                 <label asp-for="Contact" class="control-label"></label>
